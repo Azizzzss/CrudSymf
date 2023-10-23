@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<style>
+    .container { margin: 100px 380px; align-items:center;  }
+    .aziz {align-items:center;  }
+
+            
+</style>
+
+
+<div class="container align-middle ">
+    <div class="row ms-auto  ">
+        <h3 class=" aziz mt-5 mb-5 ms-5  " >Update  form</h3>
+
+           
+             {% for message in app.flashes('notice')%}
+
+             <div class="alert alert-primary" role="alert">
+                {{ message }}
+              </div>
+
+            {% endfor %}
+
+
+       <div class="  col-md-6 offser-md-3  col-6 ">
+       
+            {{ form_start(form) }}
+               
+                <div class="form-group mt-1 mb-2 col-6 ">
+                    {{ form_label(form.model) }}
+                    {{ form_widget(form.model,{'attr':{'class' : 'form-control'}}) }}  
+                </div>
+
+                <div class="form-group  mt-3 mb-2  col-6  ">
+                    {{ form_label(form.creationDate) }}
+                    {{ form_widget(form.creationDate,{'attr':{'class' : 'form-control'}}) }}   
+                </div>
+
+                <div class="form-group">
+
+                    <button type="submit" class="btn btn-primary mt-4 ">submit</button>
+            
+                </div>
+
+            {{ form_end(form) }}
+       </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
